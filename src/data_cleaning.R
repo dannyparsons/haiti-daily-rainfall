@@ -226,3 +226,5 @@ daily %>%
   group_by(station) %>%
   mutate(raindays = cumsum(rain > 0) - cummax(((rain > 0) == 0) * cumsum(rain > 0))) %>%
   filter(raindays > 20)
+
+saveRDS(daily, here("data", "output", "daily.RDS"))
